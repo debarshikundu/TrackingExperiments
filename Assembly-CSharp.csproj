@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CubeTracker.cs" />
     <Compile Include="Assets\PlayerController.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\CameraControls.cs" />
     <Compile Include="Assets\ProCore\ProBuilder\API Examples\Icosphere FFT\Scripts\IcoBumpin.cs" />
@@ -74,6 +75,7 @@
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_SelectionPicker.shader" />
     <None Include="Assets\ProCore\ProBuilder\About\changelog.txt" />
     <None Include="Assets\ProCore\ProBuilder\Shader\DiffuseVertexColor.shader" />
+    <None Include="Assets\User.txt" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_FaceHighlight.shader" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_UnlitSolidColor.shader" />
     <None Include="Assets\ProCore\ProBuilder\Shader\pb_ReferenceUnlit.shader" />

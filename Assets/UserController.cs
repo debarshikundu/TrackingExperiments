@@ -66,12 +66,13 @@ public class UserController : MonoBehaviour {
         // Update is called once per frame
         void Update()
         {
-            if(Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.RightShift))
+            OnMouseDrag();
+            if (Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.RightShift))
             {
             changeShift();
             }
 
-        OnMouseDrag();
+
             /*
             if (Input.GetMouseButton(0))
             {
