@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class CubeTracker : MonoBehaviour {
+public class CubeTracker : MonoBehaviour
+{
 
     private bool logging = true;
+    string filepath = null;
+
 
     void Awake()
     {
+        filepath = Application.dataPath + "/User.txt";
+        File.WriteAllText(filepath, "The user cube visited these random coordinates: \n\n");
         StartCoroutine(LogPosition());
     }
 
@@ -22,12 +27,7 @@ public class CubeTracker : MonoBehaviour {
     }
 
     void PrintPoint(Vector3 position)
-    {
-        string filepath = Application.dataPath + "/User.txt";
-        if (File.Exists(filepath) == false)
-        {
-            File.WriteAllText(filepath, "The player blob visited these random coordinates: \n\n");
-        }
+    { 
         File.AppendAllText(filepath, string.Format("{0}\n\n", JsonUtility.ToJson(position)));
     }
 

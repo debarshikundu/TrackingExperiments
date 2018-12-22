@@ -5,17 +5,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private float movementDuration = 2.0f;
+    private WaitForSeconds waitBeforeMoving = new WaitForSeconds(2f);
+    private Vector3[] path = new Vector3[20];
+    private string filepath = null;
 
-    float movementDuration = 2.0f;
-    WaitForSeconds waitBeforeMoving = new WaitForSeconds(2f);
-    Vector3[] path = new Vector3[20];
-
-    void Start()
+    private void Start()
     {
         StartCoroutine(MainRoutine());
+        filepath = Application.dataPath + "/Player.txt";
+        File.WriteAllText(filepath, "The player blob visited these random coordinates: \n\n");
     }
 
-    IEnumerator MainRoutine()
+    private IEnumerator MainRoutine()
     {
         //generate new path:
         for (int i = 0; i < path.Length; i++)
@@ -48,20 +50,16 @@ public class PlayerController : MonoBehaviour
         PrintPoints();
     }
 
-    void PrintPoints()
+    private void PrintPoints()
     {
-        string filepath = Application.dataPath + "/Player.txt";
-        if (File.Exists(filepath) == false)
-        {
-            File.WriteAllText(filepath, "The player blob visited these random coordinates: \n\n");
-        }
+       
         foreach (Vector3 vector in path)
         {
             File.AppendAllText(filepath, string.Format("{0}\n\n", JsonUtility.ToJson(vector)));
         }
     }
 
-    float RandomNum(float lastRandNum)
+    private float RandomNum(float lastRandNum)
     {
         //Random value range can be changed in the future if necessary
         float randNum = Random.Range(-10.0f, 10.0f);

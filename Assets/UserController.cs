@@ -5,8 +5,9 @@ using UnityEngine;
 
 [RequireComponent(typeof(MeshCollider))]
 
-public class UserController : MonoBehaviour {
-   
+public class UserController : MonoBehaviour
+{
+
 
     bool shiftOn = false;
 
@@ -15,7 +16,7 @@ public class UserController : MonoBehaviour {
 
         if (Input.GetMouseButton(0))
         {
-            if(shiftOn)
+            if (shiftOn)
             {
                 //3D Drag, courtesy of Unity Forums
                 float distance_to_screen = Camera.main.WorldToScreenPoint(gameObject.transform.position).z;
@@ -34,7 +35,7 @@ public class UserController : MonoBehaviour {
 
         }
 
-      }
+    }
 
     void changeShift()
     {
@@ -46,19 +47,15 @@ public class UserController : MonoBehaviour {
     {
 
     }
-        // Update is called once per frame
-        void Update()
+    // Update is called once per frame
+    void Update()
+    {
+        OnMouseDrag();
+        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
-            OnMouseDrag();
-            if (Input.GetKey(KeyCode.LeftShift)||Input.GetKey(KeyCode.RightShift))
-            {
             changeShift();
-            }
-
-
-
-
         }
+
 
 
 
@@ -66,4 +63,4 @@ public class UserController : MonoBehaviour {
 
 
 
-
+}
