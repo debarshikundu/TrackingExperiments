@@ -13,7 +13,7 @@ public class CubeTracker : MonoBehaviour
     void Awake()
     {
         filepath = Application.dataPath + "/User.txt";
-        File.WriteAllText(filepath, "The user cube visited these random coordinates: \n\n");
+        File.WriteAllText(filepath, "The user cube visited these coordinates: \n\n");
         StartCoroutine(LogPosition());
     }
 
