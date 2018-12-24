@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
             {
                 timer += Time.deltaTime;
                 float t = timer / movementDuration;
-                t = t * t * t * (t * (6f * t - 15f) + 10f);
+                //t = t * t * t * (t * (6f * t - 15f) + 10f);
                 transform.position = Vector3.Lerp(startPos, path[i], t);
                 yield return null;
             }
